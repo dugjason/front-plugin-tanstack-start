@@ -10,7 +10,7 @@ function Home() {
   return (
     <Container>
     <div className="text-center py-8 justify-center">
-      <h1 className="font-medium text-xl mb-4">Fumadocs on Tanstack Start.</h1>
+      <h1 className="font-medium text-xl mb-4">Front Plugin Demo</h1>
 
       <PluginContent />
     </div>
