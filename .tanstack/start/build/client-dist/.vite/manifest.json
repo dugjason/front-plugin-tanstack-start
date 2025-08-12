@@ -1,0 +1,27 @@
+{
+  "../../../../../../~start/default-client-entry.tsx": {
+    "file": "assets/main-CpLABJCd.js",
+    "name": "main",
+    "src": "../../../../../../~start/default-client-entry.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/routes/index.tsx?tsr-split=component"
+    ],
+    "assets": [
+      "assets/app-DG4XgvbM.css"
+    ]
+  },
+  "/Users/jason/Code/open-source/frontapp/front-plugin-tanstack-start/src/styles/app.css": {
+    "file": "assets/app-DG4XgvbM.css",
+    "src": "/Users/jason/Code/open-source/frontapp/front-plugin-tanstack-start/src/styles/app.css"
+  },
+  "src/routes/index.tsx?tsr-split=component": {
+    "file": "assets/index-Bxij9A6n.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?tsr-split=component",
+    "isDynamicEntry": true,
+    "imports": [
+      "../../../../../../~start/default-client-entry.tsx"
+    ]
+  }
+}
