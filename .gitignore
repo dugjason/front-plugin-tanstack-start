@@ -5,9 +5,9 @@ yarn.lock
 .DS_Store
 .cache
 .env
-/.tanstack/
-.vercel
 .output
+.tanstack
+.vercel
 /build/
 /api/
 /server/build
