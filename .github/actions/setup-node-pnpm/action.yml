@@ -1,30 +1,17 @@
-name: Setup Node and pnpm
-description: Reusable composite action to setup Node.js and pnpm with caching
-inputs:
-  node-version:
-    description: Node.js version to use
-    required: false
-    default: '22'
-  pnpm-version:
-    description: pnpm version to install
-    required: false
-    default: '10.14.0'
-  cache-dependency-path:
-    description: Path to lockfile for dependency cache
-    required: false
-    default: 'pnpm-lock.yaml'
+name: "Setup and install"
+description: "Common setup steps for Actions"
+
 runs:
   using: composite
   steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ inputs.node-version }}
-        cache: pnpm
-        cache-dependency-path: ${{ inputs.cache-dependency-path }}
-
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
-      with:
-        version: ${{ inputs.pnpm-version }}
 
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: ".nvmrc"
+        cache: pnpm
+
+    - shell: bash
+      run: pnpm install
