@@ -14,7 +14,7 @@ export function UpdateDraft({ updateMode = 'insert' }: { updateMode?: UpdateMode
 
   return (
     <Button onClick={() => updateDraft(context, setIsLoading, updateMode)} disabled={isLoading} icon={isLoading ? icon : undefined}>
-      {isLoading ? 'Updating...' : 'Update Draft'}
+      {isLoading ? 'Updating...' : `Update Draft (${updateMode})`}
     </Button>
   );
 };
