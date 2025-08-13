@@ -5,13 +5,15 @@ import Front from "@frontapp/plugin-sdk";
 import type { ConversationContext } from "@frontapp/plugin-sdk";
 
 
-export function UpdateDraft() {
+export type UpdateMode = 'insert' | 'replace';
+
+export function UpdateDraft({ updateMode = 'insert' }: { updateMode?: UpdateMode }) {
   const [isLoading, setIsLoading] = useState(false);
   const context = useFrontContext();
   const icon = {name: "loader" as const, spin: true}
 
   return (
-    <Button onClick={() => updateDraft(context, setIsLoading)} disabled={isLoading} icon={isLoading ? icon : undefined}>
+    <Button onClick={() => updateDraft(context, setIsLoading, updateMode)} disabled={isLoading} icon={isLoading ? icon : undefined}>
       {isLoading ? 'Updating...' : 'Update Draft'}
     </Button>
   );
@@ -19,7 +21,8 @@ export function UpdateDraft() {
 
 async function updateDraft(
   context: ConversationContext | undefined,
-  setIsLoading: (isLoading: boolean) => void
+  setIsLoading: (isLoading: boolean) => void,
+  updateMode: UpdateMode
 ) {
   setIsLoading(true);
 
@@ -36,11 +39,12 @@ async function updateDraft(
   }
 
   try {
+  const randomSuffix = Math.random().toString(36).slice(2, 8).toUpperCase();
   await Front.updateDraft(conversation.draftId, {
-    updateMode: 'insert',
+    updateMode,
     content: {
       type: 'text',
-      body: 'This is a draft',
+      body: `This is a draft ${randomSuffix}`,
     }
   });
 
